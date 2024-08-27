@@ -1,0 +1,92 @@
+# Ignore Maven target directory
+/target/
+
+# Ignore build output directories
+out/
+build/
+
+# Ignore compiled Java classes
+*.class
+
+# Ignore logs
+*.log
+
+# Ignore temporary files created by IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse specific
+/.classpath
+/.project
+/.settings/
+
+# NetBeans specific
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# IntelliJ IDEA specific
+/.idea/
+/*.iws
+/*.iml
+/*.ipr
+/out/
+
+# VS Code specific
+.vscode/
+
+# MacOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Ignore Maven wrapper files
+.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+
+# Ignore generated files (JARs, WARs, etc.)
+*.jar
+*.war
+*.ear
+
+# Ignore files related to dependency manager tools
+*.swp
+*.swo
+
+# Ignore .env files for environment variables
+.env
+
+# Ignore logs and reports from testing frameworks
+*.log
+/test-output/
+surefire-reports/
+failsafe-reports/
+
+# Ignore temporary or backup files
+*~
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# Ignore Java crash reports (HS_ERR_PID)
+hs_err_pid*
+
+# Ignore coverage reports
+/coverage/
+.jacoco/
+
+# Ignore classpath files from different IDEs
+.classpath
+.factorypath
+.project
+.settings/
+.metadata/
+.recommenders
