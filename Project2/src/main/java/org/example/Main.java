@@ -1,6 +1,9 @@
 package org.example;
 import java.sql.SQLOutput;
 import java.util.Scanner;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -16,7 +19,7 @@ public class Main {
                 case 1:
                     libraryService.addBook();
                     break;
-                case 2:
+               case 2:
                     libraryService.showAllBooks();
                     break;
                 case 3:
@@ -29,5 +32,6 @@ public class Main {
                     System.out.println("Invalid choice, please try again.");
             }
         } while (choice != 4);
+
     }
 }
