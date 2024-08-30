@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.IntStream;
@@ -48,7 +49,6 @@ public class LibraryService {
         System.out.println("List of Books:");
         books.stream()
                 .forEach(System.out::println);
-
     }
 
     public void borrowBook() {
@@ -59,33 +59,32 @@ public class LibraryService {
         List<Book> availableBooks = getAvailableBooks();
         if (availableBooks.isEmpty()) {
             System.out.println("No books available to borrow.");
+            return;
+        }
+
+        System.out.println("Available books:");
+        IntStream.range(0, availableBooks.size())
+                .forEach(i -> System.out.println((i + 1) + ". " + availableBooks.get(i).getBookName()));
+
+
+        System.out.print("Select a book to borrow by number: ");
+        int bookIndex = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        if (bookIndex < 1 || bookIndex > availableBooks.size()) {
+            System.out.println("Invalid selection.");
         } else {
+            Book bookToBorrow = availableBooks.get(bookIndex - 1);
+            bookToBorrow.setBorrowed(true);
+            bookToBorrow.setBorrowedBy(borrowerName);
 
-            System.out.println("Available books:");
-            IntStream.range(0, availableBooks.size())
-                    .forEach(i -> System.out.println((i + 1) + ". " + availableBooks.get(i).getBookName()));
+            Session session = sessionFactory.openSession();
+            Transaction tx = session.beginTransaction();
+            session.update(bookToBorrow);
+            tx.commit();
+            session.close();
 
-
-
-            System.out.print("Select a book to borrow by number: ");
-            int bookIndex = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
-
-            if (bookIndex < 1 || bookIndex > availableBooks.size()) {
-                System.out.println("Invalid selection.");
-            } else {
-                Book bookToBorrow = availableBooks.get(bookIndex - 1);
-                bookToBorrow.setBorrowed(true);
-                bookToBorrow.setBorrowedBy(borrowerName);
-
-                Session session = sessionFactory.openSession();
-                Transaction tx = session.beginTransaction();
-                session.update(bookToBorrow);
-                tx.commit();
-                session.close();
-
-                System.out.println("Book borrowed successfully.");
-            }
+            System.out.println("Book borrowed successfully.");
         }
     }
 

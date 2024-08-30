@@ -1,6 +1,8 @@
 package org.example;
+
 import java.sql.SQLOutput;
 import java.util.Scanner;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -19,7 +21,7 @@ public class Main {
                 case 1:
                     libraryService.addBook();
                     break;
-               case 2:
+                case 2:
                     libraryService.showAllBooks();
                     break;
                 case 3:

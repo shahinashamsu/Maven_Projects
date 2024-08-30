@@ -7,6 +7,13 @@
     <groupId>org.example</groupId>
     <artifactId>Project2</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
         <!-- Hibernate core dependency -->
         <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
@@ -23,11 +30,5 @@
             <version>8.2.0</version>
         </dependency>
     </dependencies>
-
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
 </project>
